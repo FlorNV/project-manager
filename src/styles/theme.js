@@ -9,25 +9,26 @@ const theme = {
     grey_01: '#BDBDBD',
     grey_02: '#595959',
     grey_03: '#262626',
-    grey_04: '#BDBDBD',
     textColor: '#000000A6',
-    textColorSecondary: '#00000073'
+    textColorSecondary: '#00000073',
+    tableHeader: '#00000005',
+    colorShadow: '#00000026'
   },
   fontFamily: {
     fontHeading: "'Inter', sans-serif",
     fontBody: "'Roboto', sans-serif"
   },
   fontSize: {
-    text_xs: '12px',
-    text_sm: '14px',
-    text_base: '16px',
-    text_lg: '18px',
-    text_xl: '20px',
-    text_2xl: '24px',
-    text_3xl: '30px',
-    text_4xl: '36px',
-    text_5xl: '48px',
-    text_6xl: '60px'
+    text_xs: '10px',
+    text_sm: '12px',
+    text_base: '14px',
+    text_lg: '16px',
+    text_xl: '18px',
+    text_2xl: '20px',
+    text_3xl: '24px',
+    text_4xl: '30px',
+    text_5xl: '36px',
+    text_6xl: '48px'
   },
   fontWeight: {
     font_thin: 100,
@@ -40,8 +41,11 @@ const theme = {
     font_extrabold: 800,
     font_black: 900
   },
-  borderRadius: '10px',
-  shadow: '#00000026'
+  borderRadius: '4px',
+  shadows: {
+    shadow_01: '0 2px 8px 2px #00000026',
+    shadow_02: '0px 4px 4px -1px #00000026'
+  }
 }
 
 export default theme

@@ -52,7 +52,7 @@
   --border-radius-full: 100%;
 
   /* Shadows */
-  --shadow-primary: 0 0 0 0.25rem rgba(243, 114, 44,.25);
+  --shadow-primary: 0 0 0 0.25rem rgba(245, 34, 45,.25);
   --shadow-secondary: 0 4px 8px var(--secondary);
   --shadow-black: 0 4px 6px -2px rgba(0, 0, 0, 0.4);
   --shadow: #00000026;

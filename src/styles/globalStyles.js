@@ -7,6 +7,10 @@ const globalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    *:focus {
+        outline: none;
+    }
+
     body {
         font-family: ${({ theme }) => theme.fontFamily.fontBody};
         background-color: ${({ theme }) => theme.colors.tertiary};
@@ -31,7 +35,7 @@ const globalStyles = createGlobalStyle`
 
     input, textarea, button {
         font-family: ${({ theme }) => theme.fontFamily.fontBody};
-        color: ${({ theme }) => theme.colors.black}; 
+        color: ${({ theme }) => theme.colors.black};
     }
 `
 
