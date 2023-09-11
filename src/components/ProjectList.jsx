@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 import { useEffect, useState } from 'react'
 import { ProjectCard } from '../components/ProjectCard'
+import { ProjectRow } from './ProjectRow'
 
 const Table = styled.table`
 width: 100%;
@@ -61,7 +62,7 @@ export const ProjectList = ({ projects }) => {
             </TableRow>
           </TableHead>
           <tbody>
-            {projects.map((project) => <ProjectCard key={project.id} project={project} />)}
+            {projects.map((project) => <ProjectRow key={project.id} project={project} />)}
           </tbody>
         </Table>
       }

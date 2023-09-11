@@ -3,9 +3,12 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Dashboard, ManageProject, Navigation, ProjectsFound } from './pages/index'
 import { ProjectsContext } from './context/ProjectsContext'
 import { projects } from './utils/data'
+import { Modal } from './components/Modal'
+import { ModalContext } from './context/ModalContext'
 
 function App () {
   const { setProjects } = useContext(ProjectsContext)
+  const { isVisible } = useContext(ModalContext)
 
   useEffect(() => {
     setProjects(projects)
@@ -25,6 +28,7 @@ function App () {
 
         <Route path='*' element={<Navigate to='/dashboard' />} />
       </Routes>
+      {isVisible && <Modal />}
     </BrowserRouter>
   )
 }

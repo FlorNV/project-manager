@@ -5,6 +5,7 @@ import { ProjectsContext } from '../context/ProjectsContext'
 import More from '../assets/images/more.svg'
 import Edit from '../assets/images/edit.svg'
 import Trash from '../assets/images/trash.svg'
+import { ModalContext } from '../context/ModalContext'
 
 const MoreButton = styled.button`
   cursor: pointer;
@@ -76,6 +77,7 @@ const Option = styled.li`
 
 export const MoreMenu = ({ id }) => {
   const { setProjects } = useContext(ProjectsContext)
+  const { isVisible, result, openModal, setResult } = useContext(ModalContext)
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
   const buttonRef = useRef(null)
@@ -89,8 +91,17 @@ export const MoreMenu = ({ id }) => {
 
   const handleDelete = () => {
     closeMenu()
-    setProjects((prev) => prev.filter((project) => project.id !== id))
+    console.log(id)
+    openModal()
   }
+
+  useEffect(() => {
+    console.log(id)
+    if (!isVisible && result === 'confirm') {
+      setProjects((prev) => prev.filter((project) => project.id !== id))
+      setResult('')
+    }
+  }, [isVisible])
 
   useEffect(() => {
     const handleClick = (event) => {
