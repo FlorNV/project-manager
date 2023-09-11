@@ -18,7 +18,7 @@ function App () {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Navigation />} >
-          <Route path='dashboard' element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path='create' element={<ManageProject />} />
           <Route path='edit/:id' element={<ManageProject />} />
           <Route path='search' element={<ProjectsFound />}>
@@ -26,7 +26,7 @@ function App () {
           </Route>
         </Route>
 
-        <Route path='*' element={<Navigate to='/dashboard' />} />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
       {isVisible && <Modal />}
     </BrowserRouter>

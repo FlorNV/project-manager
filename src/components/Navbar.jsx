@@ -85,35 +85,30 @@ export const Navbar = () => {
       <Logo>LOGO</Logo>
       <Line />
       <Nav>
-        { (location.pathname.includes('dashboard') || location.pathname.includes('search')) &&
-        <>
-          <H3>My projects</H3>
-          <Searcher />
-          <LinkStyled to='/create'>
-            <AiOutlinePlus />
-            Add project
-          </LinkStyled>
-        </>
-        }
-
-        { location.pathname.includes('create') &&
-        <BackLink to='/dashboard'>
-          <div>
-            <img src={Back} alt="Back to dashboard" />
-            Back
-          </div>
-          <span>Add project</span>
-        </BackLink>
-        }
-
-        { location.pathname.includes('edit') &&
-        <BackLink to='/dashboard'>
-          <div>
-            <img src={Back} alt="Back to dashboard" />
-            Back
-          </div>
-          <span>Edit project</span>
-        </BackLink>
+        { location.pathname.includes('create')
+          ? <BackLink to='/'>
+            <div>
+              <img src={Back} alt="Back to dashboard" />
+              Back
+            </div>
+            <span>Add project</span>
+          </BackLink>
+          : (location.pathname.includes('edit')
+              ? <BackLink to='/'>
+                <div>
+                  <img src={Back} alt="Back to dashboard" />
+                  Back
+                </div>
+                <span>Edit project</span>
+              </BackLink>
+              : <>
+                <H3>My projects</H3>
+                <Searcher />
+                <LinkStyled to='/create'>
+                  <AiOutlinePlus />
+                  Add project
+                </LinkStyled>
+              </>)
         }
       </Nav>
     </Header>

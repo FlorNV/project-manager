@@ -96,7 +96,7 @@ export const ManageProject = () => {
     } else {
       const listUpdated = projects.map(project => project.id === id ? { ...values } : project)
       setProjects(listUpdated)
-      navigate('/dashboard')
+      navigate('/')
     }
     handleClear()
   }
