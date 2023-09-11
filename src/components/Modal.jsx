@@ -61,9 +61,15 @@ align-items: center;
 gap: 6px;
 border: none;
 border-radius: ${({ theme }) => theme.borderRadius};
-background-color: ${({ theme }) => theme.colors.primary};
+background-color: ${({ cancel, theme }) => cancel ? theme.colors.grey_02 : theme.colors.primary};
 color: ${({ theme }) => theme.colors.white};
 font-size: ${({ theme }) => theme.fontSize.text_lg};
+cursor: pointer;
+transition: box-shadow .15s ease-in-out;
+
+&:hover {
+  box-shadow: 0 0 0 0.25rem ${({ cancel }) => cancel ? '#00000026' : 'rgba(245, 34, 45,.25)'};
+}
 `
 
 export const Modal = () => {

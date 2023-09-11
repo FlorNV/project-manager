@@ -60,6 +60,12 @@ border-radius: ${({ theme }) => theme.borderRadius};
 background-color: ${({ theme }) => theme.colors.primary};
 color: ${({ theme }) => theme.colors.white};
 font-size: ${({ theme }) => theme.fontSize.text_lg};
+cursor: pointer;
+transition: box-shadow .15s ease-in-out;
+
+&:hover {
+  box-shadow: 0 0 0 0.25rem rgba(245, 34, 45,.25);
+}
 `
 
 export const ManageProject = () => {

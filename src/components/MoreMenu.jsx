@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { css, styled } from 'styled-components'
-import { ProjectsContext } from '../context/ProjectsContext'
 import More from '../assets/images/more.svg'
 import Edit from '../assets/images/edit.svg'
 import Trash from '../assets/images/trash.svg'
@@ -75,9 +74,8 @@ const Option = styled.li`
   }
 `
 
-export const MoreMenu = ({ id }) => {
-  const { setProjects } = useContext(ProjectsContext)
-  const { isVisible, result, openModal, setResult } = useContext(ModalContext)
+export const MoreMenu = ({ id, handleDeleteClick }) => {
+  const { openModal } = useContext(ModalContext)
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
   const buttonRef = useRef(null)
@@ -91,17 +89,9 @@ export const MoreMenu = ({ id }) => {
 
   const handleDelete = () => {
     closeMenu()
-    console.log(id)
+    handleDeleteClick(id)
     openModal()
   }
-
-  useEffect(() => {
-    console.log(id)
-    if (!isVisible && result === 'confirm') {
-      setProjects((prev) => prev.filter((project) => project.id !== id))
-      setResult('')
-    }
-  }, [isVisible])
 
   useEffect(() => {
     const handleClick = (event) => {

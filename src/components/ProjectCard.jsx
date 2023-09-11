@@ -42,7 +42,7 @@ const Avatar = styled.img`
   border-radius: 100%;
 `
 
-export const ProjectCard = ({ project }) => {
+export const ProjectCard = ({ project, handleDeleteClick }) => {
   const { id, projectName, createdAt } = project
   const creationDate = formatDate(createdAt)
   const assignedTo = people.find((person) => person.id === project.assignedTo)
@@ -55,7 +55,7 @@ export const ProjectCard = ({ project }) => {
           <CreationDate>Creation date: {creationDate}</CreationDate>
         </div>
         <MenuContainer>
-          <MoreMenu id={id} />
+          <MoreMenu id={id} handleDeleteClick={handleDeleteClick} />
         </MenuContainer>
       </Container>
       <Person>

@@ -55,7 +55,7 @@ const Tag = styled.span`
   border-radius: ${({ theme }) => theme.borderRadius};
 `
 
-export const ProjectRow = ({ project }) => {
+export const ProjectRow = ({ project, handleDeleteClick }) => {
   const { id, projectName, createdAt, status } = project
   const creationDate = formatDate(createdAt)
   const assignedTo = people.find((person) => person.id === project.assignedTo)
@@ -85,7 +85,7 @@ export const ProjectRow = ({ project }) => {
         <Tag>{status ? 'Enabled' : 'Disabled'}</Tag>
       </TableCell>
       <TableCell>
-        <MoreMenu id={id} />
+        <MoreMenu id={id} handleDeleteClick={handleDeleteClick} />
       </TableCell>
     </TableRow>
   )
