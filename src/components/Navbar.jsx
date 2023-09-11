@@ -28,17 +28,20 @@ const Nav = styled.nav`
 display: flex;
 align-items: center;
 justify-content: space-between;
+gap: 10px;
 padding: 0 16px;
 height: 40px;
 border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
 `
 
 const H3 = styled.h3`
+width: max-content;
 color: ${({ theme }) => theme.colors.headingColor};
 font-size: ${({ theme }) => theme.fontSize.text_lg};
 `
 
 const LinkStyled = styled(Link)`
+width: max-content;
 display: flex;
 align-items: center;
 gap: 6px;

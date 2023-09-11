@@ -1,4 +1,4 @@
-import { useContext, useState, useMemo } from 'react'
+import { useContext, useState, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai'
@@ -7,6 +7,10 @@ import { ProjectsContext } from '../context/ProjectsContext'
 const Container = styled.div`
   margin: 0 auto;
   width: 400px;
+  
+  @media (max-width: 768px) {
+    flex: 1;
+  }
 `
 
 const Label = styled.label`
@@ -54,7 +58,10 @@ export const Searcher = () => {
     return projects.filter(project =>
       project.projectName.toLowerCase().includes(query.toLowerCase()))
   }, [projects, query])
-  setFilteredProjects(filteredProjects)
+
+  useEffect(() => {
+    setFilteredProjects(filteredProjects)
+  }, [filteredProjects])
 
   return (
     <Container>
